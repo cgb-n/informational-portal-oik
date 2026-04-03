@@ -1,0 +1,264 @@
+Put your HTML text here<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОИК | Центральная городская больница города Невский #1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #D4AF37; /* Золото */
+            --text: #ffffff;
+            --gray: #eee;
+            --card-bg: #0f0f0f;
+            --line: rgba(212, 175, 55, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* НАВИГАЦИЯ */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 30px 0;
+            background: rgba(5, 5, 5, 0.9);
+            border-bottom: 1px solid var(--line);
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            margin: 0 20px;
+            transition: 0.4s;
+            font-weight: 300;
+            cursor: pointer;
+        }
+
+        nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* СЕКЦИИ */
+        .page {
+            display: none; /* Скрываем все страницы по умолчанию */
+            min-height: 100vh;
+            padding-top: 150px;
+            padding-bottom: 100px;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .active { display: block; } /* Показываем активную страницу */
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ГЛАВНАЯ (HOME) */
+        .hero-title { font-size: 5rem; font-weight: 600; line-height: 0.9; margin-bottom: 40px; letter-spacing: -3px; }
+        .hero-title span { color: var(--accent); }
+        
+        .advantages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+
+
+.adv-item { border: 1px solid var(--line); padding: 30px; background: var(--card-bg); transition: 0.3s; }
+        .adv-item:hover { border-color: var(--accent); }
+        .adv-item h3 { color: var(--accent); font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; }
+        .adv-item p { font-size: 0.9rem; color: var(--gray); font-weight: 300; }
+
+        /* О НАС (ABOUT) */
+        .about-content { max-width: 800px; }
+        .about-content h2 { font-size: 2.5rem; margin-bottom: 30px; font-weight: 400; text-transform: uppercase; letter-spacing: 5px; }
+        .about-content p { font-size: 1.1rem; line-height: 1.8; color: var(--gray); font-weight: 300; margin-bottom: 25px; }
+        .quote { border-left: 3px solid var(--accent); padding-left: 30px; margin: 50px 0; font-style: italic; color: var(--text); }
+
+        /* ЗОЛОТОЙ АУДИТ (AUDIT) */
+        .audit-card {
+            background: linear-gradient(145deg, #111, #050505);
+            border: 1px solid var(--accent);
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .audit-card::before {
+            content: "100.000";
+            position: absolute;
+            font-size: 15rem;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.03);
+            top: -50px; left: 50%; transform: translateX(-50%);
+            z-index: 0;
+        }
+        .audit-card h2 { font-size: 4rem; color: var(--accent); margin-bottom: 10px; position: relative; z-index: 1; }
+        .audit-card p { letter-spacing: 4px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 40px; color: var(--gray); position: relative; z-index: 1; }
+        
+        /* КНОПКИ */
+        .btn {
+            display: inline-block;
+            padding: 20px 50px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            transition: 0.4s;
+            background: transparent;
+            cursor: pointer;
+            position: relative; z-index: 1;
+        }
+
+
+.btn:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); }
+
+        /* ФУТЕР */
+        footer { padding: 60px 0; text-align: center; font-size: 0.6rem; letter-spacing: 4px; color: #333; text-transform: uppercase; border-top: 1px solid var(--line); }
+
+    </style>
+</head>
+<body>
+
+    <!-- НАВИГАЦИЯ -->
+    <nav>
+        <a onclick="showPage('home')">Главная</a>
+        <a onclick="showPage('about')">О нас</a>
+        <a onclick="showPage('audit')">Золотой Аудит</a>
+        <a href="https://forum.gtaprovince.ru/topic/995720-cgb-g-nevskiy-informacionnyy-razdel-otdeleniya-infekcionnogo-kontrolya/" target="_blank">Регламенты</a>
+        <a href="https://vk.com/ilinskiya" target="_blank" real= "noopener noreferrer">Контакты</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- СЕКЦИЯ: ГЛАВНАЯ -->
+        <div id="home" class="page active">
+            <h1 class="hero-title">АРХИТЕКТУРА
+<span>ПОРЯДКА.</span></h1>
+            <p style="color: var(--gray); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Отделение Инфекционного Контроля</p>
+            
+            <div class="advantages">
+                <div class="adv-item">
+                    <h3>Статус</h3>
+                    <p>Прямой надзор над государственными и силовыми структурами Провинции.</p>
+                </div>
+                <div class="adv-item">
+                    <h3>Экспертиза</h3>
+                    <p>Высшая инстанция в вопросах санитарной, эпидемиологической безопасности.</p>
+                </div>
+                <div class="adv-item">
+
+
+<h3>Приоритет</h3>
+                    <p>Элитное подразделение с уникальными полномочиями и ресурсами.</p>
+                </div>
+            </div>
+            <button class="btn" style="margin-top: 60px;" onclick="showPage('audit')">Принять участие в аудите</button>
+        </div>
+
+        <!-- СЕКЦИЯ: О НАС -->
+        <div id="about" class="page">
+            <div class="about-content">
+              <h1 class="hero-title">ЭТАЛОН ИНФЕКЦИОННОГО КОНТРОЛЯ.</span></h1>
+
+                <p>ОИК — это не просто отделение. Это фундамент стабильности Министерства Здравоохранения. Под руководством Никифорова И.Д. мы трансформируем систему контроля, внедряя цифровые стандарты и жесткую дисциплину.</p>
+                <div class="quote">
+                    «Порядок в малом рождает гармонию в великом. ОИК — это воля к совершенству.»
+                </div>
+                <p>Наша цель — полная санитарная безопасность объектов Провинции. Мы работаем там, где другие боятся взять на себя ответственность.</p>
+                <button id="copyBtn" class="btn" onclick="copyVK()">Связаться с руководством</button>
+
+<!-- Стили для уведомления (добавь в блок <style>, если хочешь) -->
+<style>
+    .btn-success {
+        background: #D4AF37 !important;
+        color: #050505 !important;
+        border-color: #D4AF37 !important;
+    }
+</style>
+
+
+<script>
+function copyVK() {
+    const vkLink = "https://vk.com/ilinskiya"; // Твоя ссылка
+    const btn = document.getElementById('copyBtn');
+    
+    // Создаем временный элемент для копирования
+    const el = document.createElement('textarea');
+    el.value = vkLink;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy'); // Копируем в буфер
+    document.body.removeChild(el);
+
+    // Визуальный эффект для кнопки
+    const originalText = btn.innerText;
+    btn.innerText = "СКОПИРОВАНО!";
+    btn.classList.add('btn-success');
+
+    // Возвращаем как было через 2 секунды
+    setTimeout(() => {
+        btn.innerText = originalText;
+        btn.classList.remove('btn-success');
+    }, 2000);
+}
+</script>
+            </div>
+        </div>
+
+        <!-- СЕКЦИЯ: ЗОЛОТОЙ АУДИТ -->
+        <div id="audit" class="page">
+            <div class="audit-card">
+                <p>Еженедельный призовой фонд</p>
+                <h2>100.000 RUB</h2>
+                <p>Лучшему инспектору по результатам отчетности</p>
+                <a href="https://forms.gle/nSfDmGzV8dJkcJ8d6" target="_blank" class="btn">Заполнить акт аудита</a>
+               <div style="margin-top: 40px; color: var(--gray); font-size: 0.9rem; font-weight: 400; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
+    Система "Золотой Аудит" внедрена для повышения качества надзора и личной мотивации состава.
+</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        2026 | Nikiforov I.D | Fundador do portal
+    </footer>
+
+    <script>
+        // ЛОГИКА ПЕРЕКЛЮЧЕНИЯ СТРАНИЦ БЕЗ ПЕРЕЗАГРУЗКИ
+        function showPage(pageId) {
+            // Скрываем все страницы
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Показываем нужную
+            document.getElementById(pageId).classList.add('active');
+
+            // Прокрутка вверх при смене страницы
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
